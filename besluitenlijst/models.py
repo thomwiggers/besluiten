@@ -7,6 +7,9 @@ class Alv(models.Model):
     return "Alv van " + self.datum.strftime("%d-%m-%Y")
 
 class Besluit(models.Model):
+  class Meta:
+    verbose_name_plural = 'Besluiten'
+
   besluit = models.TextField('Tekst besluit')
   alv = models.ForeignKey(Alv)
   volgnummer = models.PositiveIntegerField()

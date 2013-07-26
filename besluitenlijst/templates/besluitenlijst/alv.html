@@ -1,0 +1,7 @@
+<h1>{{ alv }}</h1>
+<ol>
+  {% for besluit in alv.besluit_set.all %} 
+    <li> {{ besluit }} </li>
+  {% endfor%}
+</ol>
+

@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{% if alvlijst %}
+  <ul>
+  {% for alv in alvlijst %}
+  <li><a href="{% url 'alv' alv.id %}">{{ alv }}</a></li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>Er zijn geen ALVs</p>
+{% endif %}
