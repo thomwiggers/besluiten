@@ -13,6 +13,7 @@ class Besluit(models.Model):
   besluit = models.TextField('Tekst besluit')
   alv = models.ForeignKey(Alv)
   volgnummer = models.PositiveIntegerField()
+  valid = models.BooleanField('Besluit nog geldig', default = True)
 
   def __unicode__(self):
     return self.besluit
