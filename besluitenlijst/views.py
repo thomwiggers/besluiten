@@ -23,9 +23,9 @@ class AlvView(generic.DetailView):
 def tex(request):
   alvs = Alv.objects.order_by('-datum')
   datum = datetime.datetime.now()
+ 
   response = HttpResponse(content_type='text/tex')
   response['Content-Disposition'] = 'attachment; filename="besluitenlijst.tex"'
-
 
   response.write(render_to_string('besluitenlijst/besluitenlijst.pytex', {'alvs': alvs, 
     'datum' : datum,
