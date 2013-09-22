@@ -1,0 +1,76 @@
+\documentclass[a4paper,titlepage]{article}
+
+\usepackage{icomma}
+\usepackage[english,dutch]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage[left]{eurosym}
+\usepackage{a4wide}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\author{Studievereniging Thalia}
+
+\title{\textsc{\LARGE Beleidsdocument \\ 
+  Studievereniging Thalia \\
+    Nijmegen} \\ \vspace{2cm} 
+      \includegraphics[width=0.5\textwidth]{logo} \\ \vspace{2cm}
+}
+
+\date{ {{ datum }} }
+
+\begin{document}
+
+\maketitle
+
+\section*{Inleiding} 
+
+Dit document geeft een overzicht van alle voor het beleid van Studievereniging
+Thalia relevante besluiten die zijn genomen op Algemene Ledenvergaderingen. Het
+is bedoeld als hulpmiddel en naslagwerk, om te voorkomen dat telkens dezelfde
+onderwerpen worden behandeld en om te kunnen opzoeken wanneer een bepaald
+onderwerp is besproken. 
+
+Dit document behoort door het bestuur altijd up-to-date gehouden te worden. In
+het geval van discrepanties tussen de notulen van een vergadering en dit
+document, zijn de notulen leidend.
+
+Dit document is gegenereerd op {{ datum }} door Thom Wiggers'
+Besluitenlijstgenerator versie {{ version }}. Het bevat bijdragen van: 
+
+\begin{itemize}
+%  {% for contributor in contributors %}
+  \item {{ contributor }}
+%  {% endfor %}
+
+\end{itemize}
+
+\tableofcontents
+
+\clearpage
+
+% {% for alv in alvs %}
+  \section{ {{ alv }} }
+
+  \begin{enumerate}
+%  {% for besluit in alv.besluit_set.all %}
+     \item
+%  {% if not besluit.valid %}
+    \st{ {{ besluit }} }
+%  {% else %} 
+    {{ besluit }}
+%  {% endif %} 
+  
+%  {% empty %} 
+    Er zijn geen besluiten genomen of genotuleerd op deze Algemene Ledenvergadering!
+%  {% endfor %}
+
+  \end{enumerate}
+
+% {% endfor %} 
+
+\end{document}
