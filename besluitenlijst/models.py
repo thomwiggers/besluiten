@@ -1,10 +1,12 @@
+# -*- coding: utf-8 -*-
+
 from django.db import models
 
 class Alv(models.Model):
   datum = models.DateField('datum alv')
    
   def __unicode__(self):
-    return "Alv van " + self.datum.strftime("%d-%m-%Y")
+    return "Algemene Ledenvergadering van " + self.datum.strftime("%d-%m-%Y")
 
 class Besluit(models.Model):
   class Meta:
@@ -16,7 +18,19 @@ class Besluit(models.Model):
   valid = models.BooleanField('Besluit nog geldig', default = True)
 
   def __unicode__(self):
-    return self.besluit
+    return self.besluit.replace("\\&", "&").replace("&","\\&").replace(u"€", "\\EUR ")
+
+  class Meta:
+    ordering = ['volgnummer']
+
+class Contributors(models.Model):
+  contributor = models.TextField('Bijdrager')
+
+  def __unicode__(self):
+    return self.contributor
+
+  class Meta:
+    ordering = ['contributor']
 
 
 
