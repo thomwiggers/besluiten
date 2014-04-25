@@ -4,6 +4,7 @@ from django.http import HttpResponse, Http404
 from django.views import generic
 from django.shortcuts import render, get_object_or_404
 from django.template.loader import render_to_string
+from django.contrib.auth.decorators import login_required
 from besluitenlijst.models import Alv, Contributors
 from version import version
 import datetime
@@ -20,6 +21,7 @@ class AlvView(generic.DetailView):
   template_name = 'besluitenlijst/alv.html'
   model = Alv
 
+@login_required
 def tex(request):
   alvs = Alv.objects.order_by('-datum')
   datum = datetime.datetime.now()
